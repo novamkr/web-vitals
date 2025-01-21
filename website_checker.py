@@ -15,22 +15,22 @@ try:
 except ImportError:
     PDF_EXPORT_AVAILABLE = False
 
-SUPPORTED_LANGUAGES = {
-    'en': 'English',
-    'es': 'Español'
-}
+# SUPPORTED_LANGUAGES = {
+#     'en': 'English',
+#     'es': 'Español'
+# }
 
 HTML_FILE_PATH = 'website_content.txt'
 
-def get_user_language():
-    use_multi = input("Enable multi-language support? (Y/N): ").strip().lower()
-    if use_multi == 'y':
-        print("Supported Languages:")
-        for code, lang_name in SUPPORTED_LANGUAGES.items():
-            print(f"{code} - {lang_name}")
-        chosen = input("Enter language code (default: 'en'): ").strip().lower()
-        return chosen if chosen in SUPPORTED_LANGUAGES else 'en'
-    return 'en'
+#def get_user_language():
+    # use_multi = input("Enable multi-language support? (Y/N): ").strip().lower()
+    # if use_multi == 'y':
+    #     print("Supported Languages:")
+    #     for code, lang_name in SUPPORTED_LANGUAGES.items():
+    #         print(f"{code} - {lang_name}")
+    #     chosen = input("Enter language code (default: 'en'): ").strip().lower()
+    #     return chosen if chosen in SUPPORTED_LANGUAGES else 'en'
+    # return 'en'
 
 def load_html_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -792,7 +792,7 @@ def analyze_html():
     }
 
     report_filename = generate_report_filename(soup)
-    generate_report(report_filename, report_data, language_code=language_code, generate_pdf=False)
+    generate_report(report_filename, report_data, generate_pdf=False)
 
     print(f"\nAnalysis complete. Report generated: {report_filename}, Score: {score}/100")
     if not PDF_EXPORT_AVAILABLE:
